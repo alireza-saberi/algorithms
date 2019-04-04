@@ -1,0 +1,17 @@
+# OSX folder attributes
+.DS_Store
+
+# temporary files
+*~
+*.back
+*.tmp
+
+
+# config folder
+config
+
+# junk files and folders
+.idea
+
+#unnecessary files
+out
