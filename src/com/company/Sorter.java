@@ -54,6 +54,30 @@ public class Sorter {
         return intArray;
     }
 
+    // another least efficient algorithm
+    // order is quadratic
+    // this is in place algorithm involves many shifts
+    // this is unstable algorithm
+    public int[] sortInsertion(){
+
+        for (int firstUnsortedIndex =1 ; firstUnsortedIndex < intArray.length; firstUnsortedIndex++){
+            int newElement = intArray[firstUnsortedIndex];
+
+            int i;
+
+            for(i = firstUnsortedIndex; i > 0 && intArray[i-1] > newElement; i--){
+                intArray[i-1] = intArray[i];
+            }
+
+            intArray[i] = newElement;
+
+        }
+
+        return intArray;
+    }
+
+
+
     public static void swap(int[] array, int i, int j){
         if ( i == j ) return;
 
