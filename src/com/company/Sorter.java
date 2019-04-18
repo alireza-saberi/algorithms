@@ -139,4 +139,54 @@ public class Sorter {
         }
     }
 
+    // Quick sort:  quiet efficient algorithm
+    // recursive and order is n log n
+    // this is NOT in place algorithm
+    // this is a stable algorithm
+    /*
+        taken from Tutorial with Gayle Laakmann McDowell on youtube (    // Merge sort:  quiet efficient algorithm
+    // recursive and order is n log n
+    // this is NOT in place algorithm
+    // this is a stable algorithm
+    /*
+        the idea is like
+        mergesort(array) {
+            mergesort(array's left half)
+            mergesort(array's right side)
+            merge left & right half in sorted order
+        }
+        taken from Tutorial with Gayle Laakmann McDowell on youtube (https://www.youtube.com/watch?v=KF2j-9iSf4Q)
+     */
+    public static void quickSort(int[] array){
+        quickSort(array, 0, array.length);
+    }
+
+    public static void  quickSort(int[] array, int left, int right){
+        if (left > right) {
+            return;
+        }
+
+        int pivot = array[(left + right)/2];
+        int index = partition(array, left, right, pivot);
+        quickSort(array, left, index -1);
+        quickSort(array, index, right);
+    }
+
+    public static int partition(int[] array, int left, int right, int pivot){
+        while (left <= right) {
+            while ( array[left] < pivot) {
+                left++;
+            }
+            while (array[right] > pivot) {
+                right--;
+            }
+            if(left <= right){
+                swap(array,left, right );
+                left++;
+                right--;
+            }
+        }
+
+        return  left;
+    }
 }
